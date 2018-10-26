@@ -36,5 +36,15 @@ public class RegexWorkbench {
 		}
 		return count;
 	}
+	
+	public int stringWithSpecificCharacterSet(String [] inputString){
+			try{
+				Pattern pattern = Pattern.compile("[ns]a.\\.xls"); 
+				runPattern(pattern,inputString);
+				return countNumberOfMatches(pattern, inputString);
+			}catch (Exception e) {
+				return 0;
+			}
+	}
 
 }
