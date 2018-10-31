@@ -46,5 +46,46 @@ public class RegexWorkbench {
 				return 0;
 			}
 	}
+	
+	public int stringWithNotCondition(String [] inputString){
+		try{
+			/**
+			 * This pattern says 
+			 * 1) can start with n or s
+			 * 2) followed by 'a'
+			 * 3) next character cannot be numeric/digit hence [^0-9]
+			 * 4) escape (java escape means double backward slashes \\) . and consider as a plain text or char
+			 *  
+			 */
+			Pattern pattern = Pattern.compile("[ns]a[^0-9]\\.xls"); 
+			runPattern(pattern,inputString);
+			return countNumberOfMatches(pattern, inputString);
+		}catch (Exception e) {
+			return 0;
+		}
+	}
+	
+	public int stringWithNotPatternSetAndArray(String [] inputString){
+		try{
+			
+			Pattern pattern = Pattern.compile("myarray\\[[0-9][0-9]*\\]"); 
+			runPattern(pattern,inputString);
+			return countNumberOfMatches(pattern, inputString);
+		}catch (Exception e) {
+			return 0;
+		}
+	}
+	
+	// this pattern is to specify only digits from 0-9 and only if there are 4 or 6 in number
+	public int stringWithDigits(String [] inputString){
+		try{
+			Pattern pattern = Pattern.compile("^[0-9]{4}$"); 
+			runPattern(pattern,inputString);
+			return countNumberOfMatches(pattern, inputString);
+		}catch (Exception e) {
+			return 0;
+		}
+		
+	}
 
 }
